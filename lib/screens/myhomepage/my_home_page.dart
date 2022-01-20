@@ -36,6 +36,60 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 onPressed: () {
                   // Get.defaultDialog();
+                  Get.defaultDialog(
+                      title: 'Dialog Tittle',
+                      titleStyle: const TextStyle(fontSize: 20),
+                      middleText: 'Middle Text',
+                      middleTextStyle: const TextStyle(fontSize: 25),
+                      backgroundColor: Colors.purple,
+                      radius: 60,
+
+                      ///To customize the middle text
+                      content: Row(
+                        children: const [
+                          CircularProgressIndicator(),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Expanded(child: Text('Data Loading'))
+                        ],
+                      ),
+
+                      ///Default Cancel and Confirm action button
+                      textCancel: "Cancel",
+                      cancelTextColor: Colors.white,
+                      textConfirm: 'Confirm',
+                      confirmTextColor: Colors.white,
+                      onCancel: () {
+                        print('cancel button is clicked');
+                      },
+                      onConfirm: () {
+                        print('confirm button is clicked');
+                      },
+                      buttonColor: Colors.green,
+
+                      ///customize the default cancel and confirm
+                      //override the default cancel and confirm
+                      cancel: Text(
+                        'Cancels',
+                        style: TextStyle(color: Colors.green),
+                      ),
+                      confirm: Text(
+                        "Confirm",
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Get.back();
+                          },
+                          child: Text('Action-1'),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: Text('Action-2'),
+                        ),
+                      ]);
                 },
               ),
             )
